@@ -1,0 +1,165 @@
+/* Logo personnalisé pour LOKO Camille */
+.custom-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-3);
+    font-family: var(--font-family);
+    text-decoration: none;
+    transition: var(--transition-base);
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-base);
+}
+
+.logo-icon::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: rotate(45deg);
+    transition: var(--transition-slow);
+}
+
+.custom-logo:hover .logo-icon::before {
+    animation: logoShine 0.6s ease-out;
+}
+
+@keyframes logoShine {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+.logo-letters {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--white);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+}
+
+.logo-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--dark-900);
+    letter-spacing: -0.02em;
+}
+
+.logo-title {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+}
+
+.custom-logo:hover .logo-icon {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.custom-logo:hover .logo-name {
+    color: var(--primary-color);
+}
+
+/* Logo compact pour mobile */
+.logo-compact {
+    display: none;
+}
+
+.logo-compact .logo-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.logo-compact .logo-letters {
+    font-size: 1.2rem;
+}
+
+/* Footer logo variant */
+.footer-logo .custom-logo .logo-name,
+.footer-logo .custom-logo .logo-title {
+    color: var(--white);
+}
+
+.footer-logo .custom-logo:hover .logo-name {
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .logo-full {
+        display: none;
+    }
+    
+    .logo-compact {
+        display: inline-flex;
+    }
+    
+    .logo-text {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-icon {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .logo-letters {
+        font-size: 1rem;
+    }
+}
+
+/* Animation d'entrée */
+.logo-entrance {
+    animation: logoEntrance 0.8s ease-out;
+}
+
+@keyframes logoEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.8);
+    }
+    50% {
+        transform: translateY(-5px) scale(1.05);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Effet de pulsation subtile */
+.logo-pulse {
+    animation: logoPulse 3s ease-in-out infinite;
+}
+
+@keyframes logoPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
